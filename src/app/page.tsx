@@ -8,7 +8,7 @@ import { Task } from "@/types/task";
 import { loadTasks, saveTasks } from "../lib/storage";
 import { Button } from "../components/ui/button";
 import AddTaskDialog from "../components/AddTaskDialog";
-import { v4 as uuid } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Page() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -27,7 +27,7 @@ export default function Page() {
 
   const addTask = (title: string, description: string) => {
     const newTask: Task = {
-      id: uuid(),
+      id: uuidv4(),
       title,
       description,
       status: "todo",
